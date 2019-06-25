@@ -44,5 +44,7 @@ routes.get('/carrinho', CarrinhoController.index);
 routes.post('/carrinho', CarrinhoController.store);
 routes.put('/carrinho/:id', CarrinhoController.update);
 routes.delete('/carrinho/:id', CarrinhoController.destroy);
+//autentica
+
 
 module.exports = routes;

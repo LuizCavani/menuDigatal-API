@@ -2,9 +2,14 @@ const mongoose = require('mongoose');
 const Acompanhamento = mongoose.model('Acompanhamento');
 
 module.exports = {
+
+ 
+
+
     async index(req, res) {
         try {
             const acompanhamento = await Acompanhamento.find();
+            
             return res.json(acompanhamento);
             
         }
