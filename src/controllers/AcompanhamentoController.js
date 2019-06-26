@@ -9,9 +9,7 @@ module.exports = {
     async index(req, res) {
         try {
             const acompanhamento = await Acompanhamento.find();
-            
             return res.json(acompanhamento);
-            
         }
         catch(err) {
             req.body = {
@@ -24,7 +22,7 @@ module.exports = {
         try {
             const acompanhamento = await Acompanhamento.findById(req.params.id);
 
-            return res.json(acompanhamento);
+            return res.json(acompanhamento); 
         }
         catch(err) {
             req.body = {
@@ -36,7 +34,6 @@ module.exports = {
     async store(req, res) {
         try {    
             const acompanhamento = await Acompanhamento.create(req.body);
-
             return res.json(acompanhamento);
         }
         catch(err) {
