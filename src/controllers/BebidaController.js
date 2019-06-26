@@ -4,33 +4,62 @@ const Bebida = mongoose.model('Bebida');
 
 module.exports = {
     async index(req, res) {
-        const bebida = await Bebida.find();
-
-        return res.json(bebida);
+        try {
+            const bebida = await Bebida.find();
+            return res.json(bebida);
+        }
+        catch(err) {
+            req.body = {
+                error: "Não foi possivel encontrar o item"
+            }
+        }
     },
 
     async show(req,res) {
-        const bebida = await Bebida.findById(req.params.id);
-
-        return res.json(bebida);
+        try {
+            const bebida = await Bebida.findById(req.params.id);
+            return res.json(bebida);
+        }
+        catch(err) {
+            req.body = {
+                error: "Não foi possivel encontrar o item"
+            }
+        }
     },
 
     async store(req, res) {
-        const bebida = await Bebida.create(req.body);
-
-        return res.json(bebida);
+        try {
+            const bebida = await Bebida.create(req.body);
+            return res.json(bebida);
+        }
+        catch(err) {
+            req.body = {
+                error: "Não foi possivel criar o item"
+            }
+        }
     },
 
     async update(req, res) {
-        const bebida = await Bebida.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    
-  
-        return res.json(bebida);
+        try {    
+            const bebida = await Bebida.findByIdAndUpdate(req.params.id, req.body, { new: true });  
+            return res.json(bebida);
+        }
+        catch(err) {
+            req.body = {
+                error: "Não foi possivel atualizar o item"
+            }
+        }
     },
 
     async destroy(req, res){
-        await Bebida.findByIdAndRemove(req.params.id);
-
-        return res.send();
+        try {
+            await Bebida.findByIdAndRemove(req.params.id);
+            return res.send();
+        }
+        catch(err) {
+            req.body = {
+                error: "Não foi possivel deletar o item"
+            }
+        }
     },
 };
