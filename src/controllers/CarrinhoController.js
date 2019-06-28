@@ -62,4 +62,18 @@ module.exports = {
             }
         }
     },
+    async select(req, res){
+        try {
+            const valor = await Carrinho.find().select( $sum:'valor');
+            return res.json(total);
+        }
+        /*
+            { $group: { _id: null, amount: { $sum: "$amount" } } }
+        */ 
+        catch(err) {
+            req.body = {
+                error: "Não foi possivel encontrar o item"
+            }
+        }
+    },
 };

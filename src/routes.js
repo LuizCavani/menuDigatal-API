@@ -7,7 +7,6 @@ const BebidaController = require('./controllers/BebidaController');
 const MesaController = require('./controllers/MesaController');
 const PedidoController = require('./controllers/PedidoController');
 const CarrinhoController = require('./controllers/CarrinhoController');
-
 //rotas cardapio
 routes.get('/cardapio/:id', CardapioController.show);
 routes.get('/cardapio', CardapioController.index);
@@ -40,10 +39,13 @@ routes.put('/pedido/:id', PedidoController.update);
 routes.delete('/pedido/:id', PedidoController.destroy);
 //rotas carrinho
 routes.get('/carrinho/:id', CarrinhoController.show);
-routes.get('/carrinho', CarrinhoController.index);
+//routes.get('/carrinho', CarrinhoController.index);
 routes.post('/carrinho', CarrinhoController.store);
 routes.put('/carrinho/:id', CarrinhoController.update);
 routes.delete('/carrinho/:id', CarrinhoController.destroy);
+// pau no seu cu
+routes.get('/paunoseucu', CarrinhoController.select);
+
 //autentica
 
 
